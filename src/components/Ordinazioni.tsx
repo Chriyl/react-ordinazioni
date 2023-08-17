@@ -90,7 +90,7 @@ const Ordinazioni = () => {
             <tr key={index}>
               <td>{order.nome}</td>
               <td>{order.content}</td>
-              <td>{order.quantity}</td>
+              <td>{order.quantity /*aaaa*/}</td>
               <td>
                 <button onClick={() => handleDelete(index)}>
                   <FaBitbucket />
