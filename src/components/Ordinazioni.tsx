@@ -57,6 +57,7 @@ const Ordinazioni = () => {
         <input
           type="text"
           placeholder='inserisci nome'
+          required
           value={formm.nome}
           onChange={(e) => setFormm((prev) => ({ ...prev, nome: e.target.value }))}
         />
@@ -64,6 +65,7 @@ const Ordinazioni = () => {
           type="text"
           placeholder='inserisci il contenuto'
           value={formm.content}
+          required
           onChange={(e) => setFormm((prev) => ({ ...prev, content: e.target.value }))
 
         }
@@ -73,6 +75,7 @@ const Ordinazioni = () => {
   min={1}
   placeholder='inserisci il numero'
   value={formm.quantity}
+  required
   onChange={(e) => {
     const quantityValue = +e.target.value;
     handleValue(quantityValue); // Chiamata a handleValue qui
