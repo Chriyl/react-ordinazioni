@@ -60,7 +60,7 @@ const Ordinazioni = () => {
         />
         <input
           type="number"
-          min={1}
+          min="1"
           placeholder='inserisci il numero'
           value={formm.quantity}
           onChange={(e) =>
