@@ -3,8 +3,9 @@ import { FaBitbucket } from 'react-icons/fa6';
 import { v4 } from 'uuid';
 import './style.css';
 
+
 interface Order {
-  
+  uid: string;
   nome: string;
   content: string;
   note?: string;
@@ -20,6 +21,7 @@ const Ordinazioni = () => {
     setValue(value);
   };
   const [formm, setFormm] = useState<Order>({
+    uid: v4(),
     nome: '',
     content: '',
     note: 'niente cambiamenti',
@@ -43,6 +45,7 @@ const Ordinazioni = () => {
     setOrders(newOrders);
     localStorage.setItem('orders', JSON.stringify(newOrders));
     setFormm({
+      uid: v4(),
       nome: '',
       content: '',
       note: 'niente cambiamenti',
