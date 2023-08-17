@@ -19,7 +19,7 @@ const Ordinazioni = () => {
   const [formm, setFormm] = useState<Order>({
     nome: '',
     content: '',
-    quantity: 1,
+    quantity: 2,
   });
 
   const [orders, setOrders] = useState<Order[]>([]);
