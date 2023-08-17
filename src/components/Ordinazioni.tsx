@@ -11,7 +11,7 @@ interface Order {
 const Ordinazioni = () => {
   const min = 1
   const max = 255
-  const [, setValue] = useState(1);
+  const [value, setValue] = useState(1);
   const handleValue = (newValue: number) => {
     const value = Math.max(min, Math.min(max, newValue));
     setValue(value);
@@ -41,6 +41,7 @@ const Ordinazioni = () => {
       content: '',
       quantity: 0,
     });
+    console.log(value)
   };
 
   const handleDelete = (indexdel: number) => {
