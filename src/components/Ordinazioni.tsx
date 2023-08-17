@@ -9,6 +9,13 @@ interface Order {
 }
 
 const Ordinazioni = () => {
+  const min = 1
+  const max = 255
+  const [value, setValue] = useState(1);
+  const handleValue = (newValue: number) => {
+    const value = Math.max(min, Math.min(max, newValue));
+    setValue(value);
+  };
   const [formm, setFormm] = useState<Order>({
     nome: '',
     content: '',
@@ -56,17 +63,22 @@ const Ordinazioni = () => {
           type="text"
           placeholder='inserisci il contenuto'
           value={formm.content}
-          onChange={(e) => setFormm((prev) => ({ ...prev, content: e.target.value }))}
+          onChange={(e) => setFormm((prev) => ({ ...prev, content: e.target.value }))
+
+        }
         />
-        <input
-          type="number"
-          min="1"
-          placeholder='inserisci il numero'
-          value={formm.quantity}
-          onChange={(e) =>
-            setFormm((prev) => ({ ...prev, quantity: +e.target.value }))
-          }
-        />
+       <input
+  type="number"
+  min={1}
+  placeholder='inserisci il numero'
+  value={formm.quantity}
+  onChange={(e) => {
+    const quantityValue = +e.target.value;
+    handleValue(quantityValue); // Chiamata a handleValue qui
+    setFormm((prev) => ({ ...prev, quantity: quantityValue }));
+  }}
+/>
+
 
         <button type='submit'>vai</button>
       </form>
