@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useEffect } from 'react';
+import  { FormEvent, useState, useEffect } from 'react';
 import { FaBitbucket } from 'react-icons/fa6';
 import './style.css';
 
@@ -12,7 +12,7 @@ const Ordinazioni = () => {
   const [formm, setFormm] = useState<Order>({
     nome: '',
     content: '',
-    quantity: 0,
+    quantity: 1,
   });
 
   const [orders, setOrders] = useState<Order[]>([]);
