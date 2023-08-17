@@ -1,10 +1,13 @@
 import  { FormEvent, useState, useEffect } from 'react';
 import { FaBitbucket } from 'react-icons/fa6';
+import { v4 } from 'uuid';
 import './style.css';
 
 interface Order {
+  
   nome: string;
   content: string;
+  note?: string;
   quantity: number;
 }
 
@@ -19,8 +22,11 @@ const Ordinazioni = () => {
   const [formm, setFormm] = useState<Order>({
     nome: '',
     content: '',
+    note: 'niente cambiamenti',
     quantity: 1,
   });
+  
+  
 
   const [orders, setOrders] = useState<Order[]>([]);
 
@@ -39,6 +45,7 @@ const Ordinazioni = () => {
     setFormm({
       nome: '',
       content: '',
+      note: 'niente cambiamenti',
       quantity: 0,
     });
     console.log(value)
@@ -70,6 +77,14 @@ const Ordinazioni = () => {
 
         }
         />
+        <input
+          type="text"
+          placeholder='inserisci le note'
+          value={formm.note}
+          onChange={(e) => setFormm((prev) => ({ ...prev, note: e.target.value }))
+
+        }
+        />
        <input
   type="number"
   min={1}
@@ -94,7 +109,8 @@ const Ordinazioni = () => {
             <tr key={index}>
               <td>{order.nome}</td>
               <td>{order.content}</td>
-              <td>{order.quantity /*aaaa*/}</td>
+              <td>{order.note}</td>
+              <td>{order.quantity}</td>
               <td>
                 <button onClick={() => handleDelete(index)}>
                   <FaBitbucket />
